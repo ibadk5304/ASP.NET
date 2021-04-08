@@ -1,0 +1,52 @@
+@page
+@model nscccoursemap_ibadk5304.Pages_CourseOfferings.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CourseOffering</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CourseOffering.IsDirectedElective)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CourseOffering.IsDirectedElective)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CourseOffering.Course)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CourseOffering.Course.CourseCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CourseOffering.Instructor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CourseOffering.Instructor.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CourseOffering.DiplomaProgramYearSection)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CourseOffering.DiplomaProgramYearSection.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CourseOffering.Semester)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CourseOffering.Semester.Name)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="CourseOffering.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

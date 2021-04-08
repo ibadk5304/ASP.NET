@@ -1,0 +1,53 @@
+@page
+@model nscccoursemap_ibadk5304.Pages_Courses.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.CourseCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.CourseCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Course.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Course.Title)
+        </dd>
+
+        <dt class="col-sm-2">
+            Is prerequisite for:
+        </dt>
+        <dd class="col-sm-10">
+             @foreach (var c in Model.Course.IsPrerequisiteFor)
+    {
+
+        <div>@c.Course.Title</div>
+    }
+        </dd>
+
+         <dt class="col-sm-2">
+            Prerequisite
+        </dt>
+        <dd class="col-sm-10">
+             @foreach (var c in Model.Course.Prerequisites)
+    {
+
+        <div>@c.Prerequisite.Title</div>
+    }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Course.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

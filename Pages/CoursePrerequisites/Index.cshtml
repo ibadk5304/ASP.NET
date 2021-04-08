@@ -1,0 +1,42 @@
+@page
+@model nscccoursemap_ibadk5304.Pages_CoursePrerequisites.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Course Prerequisites</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CoursePrerequisite[0].Course)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoursePrerequisite[0].Prerequisite)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CoursePrerequisite) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.CourseCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prerequisite.CourseCode)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

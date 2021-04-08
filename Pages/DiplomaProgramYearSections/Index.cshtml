@@ -1,0 +1,49 @@
+@page
+@model nscccoursemap_ibadk5304.Pages_DiplomaProgramYearSections.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Diploma Program Year Sections</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DiplomaProgramYearSection[0].DiplomaProgramYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiplomaProgramYearSection[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiplomaProgramYearSection[0].AcademicYear)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.DiplomaProgramYearSection) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiplomaProgramYear.DiplomaProgram.Title) - @Html.DisplayFor(modelItem => item.DiplomaProgramYear.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.AcademicYear.Title)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

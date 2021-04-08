@@ -1,0 +1,65 @@
+@page
+@model nscccoursemap_ibadk5304.Pages_CourseOfferings.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Course Offerings</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.CourseOffering[0].Course)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseOffering[0].Instructor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseOffering[0].DiplomaProgramYearSection)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseOffering[0].Semester)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseOffering[0].IsDirectedElective)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CourseOffering) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.CourseCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instructor.FirstName)
+                 @Html.DisplayFor(modelItem => item.Instructor.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiplomaProgramYearSection.DiplomaProgramYear.DiplomaProgram.Title)
+                @Html.DisplayFor(modelItem => item.DiplomaProgramYearSection.DiplomaProgramYear.Title)
+                @Html.DisplayFor(modelItem => item.DiplomaProgramYearSection.Title)
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Semester.Name)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.IsDirectedElective)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

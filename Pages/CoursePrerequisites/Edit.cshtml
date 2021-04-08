@@ -1,0 +1,37 @@
+@page
+@model nscccoursemap_ibadk5304.Pages_CoursePrerequisites.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>CoursePrerequisite</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CoursePrerequisite.Id" />
+            <div class="form-group">
+                <label asp-for="CoursePrerequisite.CourseId" class="control-label"></label>
+                <select asp-for="CoursePrerequisite.CourseId" class="form-control" asp-items="ViewBag.CourseId"></select>
+                <span asp-validation-for="CoursePrerequisite.CourseId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CoursePrerequisite.PrerequisiteId" class="control-label"></label>
+                <select asp-for="CoursePrerequisite.PrerequisiteId" class="form-control" asp-items="ViewBag.PrerequisiteId"></select>
+                <span asp-validation-for="CoursePrerequisite.PrerequisiteId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+

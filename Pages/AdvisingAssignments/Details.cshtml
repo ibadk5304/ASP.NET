@@ -1,0 +1,37 @@
+@page
+@model nscccoursemap_ibadk5304.Pages_AdvisingAssignments.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>AdvisingAssignment</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AdvisingAssignment.Instructor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AdvisingAssignment.Instructor.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AdvisingAssignment.DiplomaProgramYearSection)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AdvisingAssignment.DiplomaProgramYearSection.Title)
+        </dd>
+        <dt class="col-sm-2">
+           Diploma program name
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AdvisingAssignment.DiplomaProgramYearSection.DiplomaProgramYear.DiplomaProgram.Title)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.AdvisingAssignment.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

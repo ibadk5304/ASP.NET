@@ -1,0 +1,58 @@
+@page
+@model nscccoursemap_ibadk5304.Pages_CourseOfferings.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>CourseOffering</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CourseOffering.IsDirectedElective)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CourseOffering.IsDirectedElective)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CourseOffering.Course)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CourseOffering.Course.CourseCode)- 
+            @Html.DisplayFor(model => model.CourseOffering.Course.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CourseOffering.Instructor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CourseOffering.Instructor.FirstName)
+            @Html.DisplayFor(model => model.CourseOffering.Instructor.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CourseOffering.DiplomaProgramYearSection)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CourseOffering.DiplomaProgramYearSection.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CourseOffering.Semester)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CourseOffering.Semester.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Diploma Program
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CourseOffering.DiplomaProgramYearSection.DiplomaProgramYear.DiplomaProgram.Title)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.CourseOffering.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
